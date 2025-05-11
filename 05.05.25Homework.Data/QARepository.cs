@@ -54,10 +54,10 @@ namespace _05._05._25Homework.Data
             ctx.SaveChanges();
         }
 
-        public void AddTag(Tag t)
+        public void AddTag(Tag tag)
         {
             using var ctx = new QADataContext(_connectionString);
-            if (ctx.Tags.Contains(t))
+            if (ctx.Tags.Select(t => t.Name).Contains(tag.Name))
             {
                 return;
             }
